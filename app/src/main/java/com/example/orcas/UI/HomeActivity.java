@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 
@@ -19,7 +20,9 @@ import com.example.orcas.R;
 import com.example.orcas.Repositories.HomeRepository;
 import com.example.orcas.ViewModels.HomeViewModel;
 import com.example.orcas.databinding.ActivityHomeBinding;
+import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +45,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         observeLiveData();
         homeViewModel.getTeams();
     }
+
     @Override
     protected HomeViewModel getViewModel() {
         return ViewModelProviders.of(this).get(HomeViewModel.class);
@@ -67,6 +71,15 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
             @Override
             public void onItemClick(int pos, TeamsItem team) {
                 Log.e("error", "favourite");
+            }
+        });
+
+        adapter.setOnItemClick(new HomeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos, TeamsItem team) {
+                Intent intent = new Intent(HomeActivity.this,singleTeamActivity.class);
+                intent.putExtra("id", team.getId());
+                startActivity(intent);
             }
         });
         layoutManager = new LinearLayoutManager(this);

@@ -14,7 +14,7 @@ import androidx.room.Query;
 public interface TeamsDao {
 
     @Insert()
-    void addTeams(List<TeamsItem> teams);
+    void addTeams(List<Teams> teams);
 
     @Query("select * from Teams")
     List<Teams> getAllTeams();

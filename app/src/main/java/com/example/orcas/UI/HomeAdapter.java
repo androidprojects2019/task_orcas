@@ -41,21 +41,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.homeViewHolder
         holder.website.setText(team.getWebsite());
         holder.colors.setText(team.getClubColors());
         holder.venu.setText(team.getVenue());
-
-//        holder.favourite.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.e("error", "favourite");
-//            }
-//        });
-//        holder.website.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(holder.website.getText().toString()));
-//                context.startActivity(browserIntent);
-//            }
-//        });
-
         if (onFavouriteClick != null) {
             holder.favourite.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -72,12 +57,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.homeViewHolder
                 }
             });
         }
-
-//        holder.website.setClickable(true);
-//        holder.website.setMovementMethod(LinkMovementMethod.getInstance());
-//        String text = holder.website.getText().toString();
-//        holder.website.setText(Html.fromHtml(text));
-
+        if (onItemClick != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClick.onItemClick(position, teams.get(position));
+                }
+            });
+        }
     }
 
     @Override
