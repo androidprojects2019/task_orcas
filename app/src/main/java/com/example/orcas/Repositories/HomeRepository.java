@@ -38,7 +38,7 @@ public class HomeRepository {
                         if (myDataBase.
                                 getInstance(context)
                                 .teamsDao()
-                                .getTeams() == null) {
+                                .getTeams().isEmpty()) {
                             myDataBase.
                                     getInstance(context)
                                     .teamsDao()

@@ -42,11 +42,10 @@ public class singleTeamRepository {
                     public void onSuccess(TeamResponse teamResponse) {
                         team.setValue(teamResponse);
                         teamPlayers.setValue(teamResponse.getSquad());
-                        if( myDataBase.
+                        if (myDataBase.
                                 getInstance(context)
                                 .teamDao()
-                                .getTeams() == null)
-                        {
+                                .getTeams().isEmpty()) {
                             myDataBase.
                                     getInstance(context)
                                     .teamDao()
