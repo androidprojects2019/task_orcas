@@ -9,14 +9,14 @@ import java.util.List;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class singleTeamViweModel extends ViewModel {
+public class singleTeamViewModel extends ViewModel {
     public static MutableLiveData<List<SquadItem>> teamPlayers = new MutableLiveData<>();
     public static MutableLiveData<TeamResponse> team = new MutableLiveData<>();
     public static int id;
 
     singleTeamRepository singleTeamRepository = new singleTeamRepository(id);
 
-    public singleTeamViweModel() {
+    public singleTeamViewModel() {
         this.teamPlayers = singleTeamRepository.teamPlayers;
         this.team = singleTeamRepository.team;
     }

@@ -26,12 +26,12 @@ public class singleTeamRepository {
 
 
     public void getTeam() {
-        ApiManger.getApis().getTeam(Constants.APIKEY,Integer.toString(id)).observeOn(AndroidSchedulers.mainThread())
+        ApiManger.getApis().getTeam(Constants.APIKEY, Integer.toString(id)).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new SingleObserver<TeamResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Log.e("team",d.toString() );
+                        Log.e("team", d.toString());
                     }
 
                     @Override
@@ -48,7 +48,6 @@ public class singleTeamRepository {
                     }
                 });
     }
-
 
 
 }

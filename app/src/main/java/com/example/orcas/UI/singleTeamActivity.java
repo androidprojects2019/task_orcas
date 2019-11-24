@@ -3,7 +3,6 @@ package com.example.orcas.UI;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.orcas.Api.Model.SquadItem;
@@ -12,25 +11,21 @@ import com.example.orcas.Base.BaseActivity;
 import com.example.orcas.R;
 import com.example.orcas.Repositories.HomeRepository;
 import com.example.orcas.Repositories.singleTeamRepository;
-import com.example.orcas.ViewModels.singleTeamViweModel;
+import com.example.orcas.ViewModels.singleTeamViewModel;
 import com.example.orcas.databinding.SingleTeamBinding;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class singleTeamActivity extends BaseActivity<SingleTeamBinding, singleTeamViweModel> {
+public class singleTeamActivity extends BaseActivity<SingleTeamBinding, singleTeamViewModel> {
     int id;
     PlayersAdapter adapter;
-    singleTeamViweModel singleTeamViweModel = new singleTeamViweModel();
+    singleTeamViewModel singleTeamViweModel = new singleTeamViewModel();
     RecyclerView.LayoutManager layoutManager;
     SimpleDateFormat input = new SimpleDateFormat("dd/MM/yy");
     SimpleDateFormat output = new SimpleDateFormat("dd MMM yyyy");
@@ -49,15 +44,15 @@ public class singleTeamActivity extends BaseActivity<SingleTeamBinding, singleTe
         singleTeamRepository.id = this.id;
 
         singleTeamViweModel = ViewModelProviders.of(this)
-                .get(singleTeamViweModel.class);
+                .get(singleTeamViewModel.class);
         initRecyclerView();
         observeLiveData();
         singleTeamViweModel.getTeam();
     }
 
     @Override
-    protected singleTeamViweModel getViewModel() {
-        return ViewModelProviders.of(this).get(singleTeamViweModel.class);
+    protected singleTeamViewModel getViewModel() {
+        return ViewModelProviders.of(this).get(singleTeamViewModel.class);
 
     }
 

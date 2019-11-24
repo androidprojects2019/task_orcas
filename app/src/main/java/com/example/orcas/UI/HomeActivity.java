@@ -77,7 +77,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         adapter.setOnItemClick(new HomeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int pos, TeamsItem team) {
-                Intent intent = new Intent(HomeActivity.this,singleTeamActivity.class);
+                Intent intent = new Intent(HomeActivity.this, singleTeamActivity.class);
                 intent.putExtra("id", team.getId());
                 startActivity(intent);
             }

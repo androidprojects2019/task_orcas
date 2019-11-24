@@ -11,9 +11,10 @@ import androidx.lifecycle.ViewModel;
 
 
 public class HomeViewModel extends ViewModel {
-     public static MutableLiveData<List<TeamsItem>> teams = new MutableLiveData<>();
+    public static MutableLiveData<List<TeamsItem>> teams = new MutableLiveData<>();
     HomeRepository homeRepository = new HomeRepository();
-     public HomeViewModel() {
+
+    public HomeViewModel() {
 
         teams = homeRepository.teams;
     }

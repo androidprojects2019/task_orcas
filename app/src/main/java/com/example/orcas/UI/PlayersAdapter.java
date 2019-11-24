@@ -31,10 +31,10 @@ public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.viewHold
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         SquadItem item = players.get(position);
-        holder.name.setText("Name: "+item.getName());
-        holder.position.setText("Position: "+item.getPosition());
-        holder.nationality.setText("Nationality: "+item.getNationality());
-        holder.role.setText("Role: "+item.getRole());
+        holder.name.setText("Name: " + item.getName());
+        holder.position.setText("Position: " + item.getPosition());
+        holder.nationality.setText("Nationality: " + item.getNationality());
+        holder.role.setText("Role: " + item.getRole());
     }
 
     @Override

@@ -16,9 +16,6 @@ public interface WebServices {
     @GET("competitions/2021/teams")
     Single<TeamsResponse> getTeams(@Header("X-Auth-Token") String key);
 
-//    @GET("teams/{id}")
-//    Single<List<SquadItem>> getTeamSquad(@Header("X-Auth-Token") String key,
-//                                         @Path("id") String id);
     @GET("teams/{id}")
     Single<TeamResponse> getTeam(@Header("X-Auth-Token") String key,
                                  @Path("id") String id);
