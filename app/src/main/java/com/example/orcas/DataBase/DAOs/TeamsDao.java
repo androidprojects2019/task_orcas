@@ -1,10 +1,8 @@
 package com.example.orcas.DataBase.DAOs;
 
- import com.example.orcas.Api.Model.TeamsItem;
- import com.example.orcas.DataBase.Models.Teams;
+import com.example.orcas.Api.Model.TeamsItem;
 
- import java.util.ArrayList;
- import java.util.List;
+import java.util.List;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -14,9 +12,12 @@ import androidx.room.Query;
 public interface TeamsDao {
 
     @Insert()
-    void addTeams(List<Teams> teams);
+    void addTeams(List<TeamsItem> teams);
 
-    @Query("select * from Teams")
-    List<Teams> getAllTeams();
+    @Query("select * from teamsitem")
+    List<TeamsItem> getTeams();
+
+    @Query("Update TeamsItem Set isFavourite =:isFavourite")
+    void updateTeam(boolean isFavourite);
 
 }

@@ -2,6 +2,7 @@ package com.example.orcas.Api.Model;
 
  import com.google.gson.annotations.SerializedName;
 
+
  public class SquadItem{
 
 	@SerializedName("role")

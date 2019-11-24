@@ -1,180 +1,211 @@
 package com.example.orcas.Api.Model;
+
 import com.google.gson.annotations.SerializedName;
 
-public class TeamsItem{
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-	@SerializedName("area")
-	private Area area;
+@Entity
+public class TeamsItem {
 
-	@SerializedName("venue")
-	private String venue;
+    @SerializedName("isFavourite")
+    @ColumnInfo
+    boolean isFavourite;
+    @ColumnInfo()
+    @SerializedName("venue")
+    private String venue;
 
-	@SerializedName("website")
-	private String website;
+    @ColumnInfo()
 
-	@SerializedName("address")
-	private String address;
+    @SerializedName("website")
+    private String website;
 
-	@SerializedName("crestUrl")
-	private String crestUrl;
+    @ColumnInfo()
 
-	@SerializedName("tla")
-	private String tla;
+    @SerializedName("address")
+    private String address;
 
-	@SerializedName("founded")
-	private int founded;
+    @ColumnInfo()
 
-	@SerializedName("lastUpdated")
-	private String lastUpdated;
+    @SerializedName("crestUrl")
+    private String crestUrl;
 
-	@SerializedName("clubColors")
-	private String clubColors;
+    @ColumnInfo()
 
-	@SerializedName("phone")
-	private String phone;
+    @SerializedName("tla")
+    private String tla;
 
-	@SerializedName("name")
-	private String name;
+    @ColumnInfo()
 
-	@SerializedName("id")
-	private int id;
+    @SerializedName("founded")
+    private int founded;
 
-	@SerializedName("shortName")
-	private String shortName;
+    @ColumnInfo()
 
-	@SerializedName("email")
-	private String email;
+    @SerializedName("lastUpdated")
+    private String lastUpdated;
 
-	public void setArea(Area area){
-		this.area = area;
-	}
+    @ColumnInfo()
 
-	public Area getArea(){
-		return area;
-	}
+    @SerializedName("clubColors")
+    private String clubColors;
 
-	public void setVenue(String venue){
-		this.venue = venue;
-	}
+    @ColumnInfo()
 
-	public String getVenue(){
-		return venue;
-	}
+    @SerializedName("phone")
+    private String phone;
 
-	public void setWebsite(String website){
-		this.website = website;
-	}
+    @ColumnInfo()
 
-	public String getWebsite(){
-		return website;
-	}
+    @SerializedName("name")
+    private String name;
 
-	public void setAddress(String address){
-		this.address = address;
-	}
+    @PrimaryKey(autoGenerate = true)
+    @SerializedName("id")
+    private int id;
 
-	public String getAddress(){
-		return address;
-	}
+    @ColumnInfo()
 
-	public void setCrestUrl(String crestUrl){
-		this.crestUrl = crestUrl;
-	}
+    @SerializedName("shortName")
+    private String shortName;
+    @ColumnInfo()
 
-	public String getCrestUrl(){
-		return crestUrl;
-	}
+    @SerializedName("email")
+    private String email;
 
-	public void setTla(String tla){
-		this.tla = tla;
-	}
+    public void setVenue(String venue) {
+        this.venue = venue;
+    }
 
-	public String getTla(){
-		return tla;
-	}
+    public String getVenue() {
+        return venue;
+    }
 
-	public void setFounded(int founded){
-		this.founded = founded;
-	}
+    public void setWebsite(String website) {
+        this.website = website;
+    }
 
-	public int getFounded(){
-		return founded;
-	}
+    public String getWebsite() {
+        return website;
+    }
 
-	public void setLastUpdated(String lastUpdated){
-		this.lastUpdated = lastUpdated;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getLastUpdated(){
-		return lastUpdated;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setClubColors(String clubColors){
-		this.clubColors = clubColors;
-	}
+    public void setCrestUrl(String crestUrl) {
+        this.crestUrl = crestUrl;
+    }
 
-	public String getClubColors(){
-		return clubColors;
-	}
+    public String getCrestUrl() {
+        return crestUrl;
+    }
 
-	public void setPhone(String phone){
-		this.phone = phone;
-	}
+    public void setTla(String tla) {
+        this.tla = tla;
+    }
 
-	public String getPhone(){
-		return phone;
-	}
+    public String getTla() {
+        return tla;
+    }
 
-	public void setName(String name){
-		this.name = name;
-	}
+    public void setFounded(int founded) {
+        this.founded = founded;
+    }
 
-	public String getName(){
-		return name;
-	}
+    public int getFounded() {
+        return founded;
+    }
 
-	public void setId(int id){
-		this.id = id;
-	}
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
 
-	public int getId(){
-		return id;
-	}
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
 
-	public void setShortName(String shortName){
-		this.shortName = shortName;
-	}
+    public void setClubColors(String clubColors) {
+        this.clubColors = clubColors;
+    }
 
-	public String getShortName(){
-		return shortName;
-	}
+    public String getClubColors() {
+        return clubColors;
+    }
 
-	public void setEmail(String email){
-		this.email = email;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public String getEmail(){
-		return email;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	@Override
- 	public String toString(){
-		return
-			"TeamsItem{" +
-			"area = '" + area + '\'' +
-			",venue = '" + venue + '\'' +
-			",website = '" + website + '\'' +
-			",address = '" + address + '\'' +
-			",crestUrl = '" + crestUrl + '\'' +
-			",tla = '" + tla + '\'' +
-			",founded = '" + founded + '\'' +
-			",lastUpdated = '" + lastUpdated + '\'' +
-			",clubColors = '" + clubColors + '\'' +
-			",phone = '" + phone + '\'' +
-			",name = '" + name + '\'' +
-			",id = '" + id + '\'' +
-			",shortName = '" + shortName + '\'' +
-			",email = '" + email + '\'' +
-			"}";
-		}
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public boolean isFavourite() {
+        return isFavourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        isFavourite = favourite;
+    }
+
+    public TeamsItem() {
+    }
+
+    @Override
+    public String toString() {
+        return
+                "TeamsItem{" +
+                        ",venue = '" + venue + '\'' +
+                        ",website = '" + website + '\'' +
+                        ",address = '" + address + '\'' +
+                        ",crestUrl = '" + crestUrl + '\'' +
+                        ",tla = '" + tla + '\'' +
+                        ",founded = '" + founded + '\'' +
+                        ",lastUpdated = '" + lastUpdated + '\'' +
+                        ",clubColors = '" + clubColors + '\'' +
+                        ",phone = '" + phone + '\'' +
+                        ",name = '" + name + '\'' +
+                        ",id = '" + id + '\'' +
+                        ",shortName = '" + shortName + '\'' +
+                        ",email = '" + email + '\'' +
+                        "}";
+    }
 }

@@ -35,14 +35,24 @@ public class HomeRepository {
                     @Override
                     public void onSuccess(TeamsResponse teamsResponse) {
                         teams.setValue(teamsResponse.getTeams());
-//                        myDataBase.
-//                                getInstance(context)
-//                                .teamsDao()
-//                                .addTeams(teamsResponse.getTeams());
+                        if (myDataBase.
+                                getInstance(context)
+                                .teamsDao()
+                                .getTeams() == null) {
+                            myDataBase.
+                                    getInstance(context)
+                                    .teamsDao()
+                                    .addTeams(teamsResponse.getTeams());
+                        }
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        teams.setValue(myDataBase
+                                .getInstance(context)
+                                .teamsDao()
+                                .getTeams());
                     }
                 });
     }

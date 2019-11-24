@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.orcas.DataBase.myDataBase;
 
 import android.content.Context;
 import android.content.Intent;
@@ -70,7 +71,12 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         adapter.setOnFavouriteClick(new HomeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int pos, TeamsItem team) {
-                Log.e("error", "favourite");
+                myDataBase
+                        .getInstance(activity)
+                        .teamsDao()
+                        .updateTeam(true);
+                Log.e("favourite",team+"" );
+                showMessage("Club added successfully","Ok");
             }
         });
 

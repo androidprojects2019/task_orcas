@@ -37,7 +37,7 @@ public class singleTeamActivity extends BaseActivity<SingleTeamBinding, singleTe
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HomeRepository.context = this;
+        singleTeamRepository.context = this;
         Intent intent = getIntent();
         id = intent.getIntExtra("id", 0);
 

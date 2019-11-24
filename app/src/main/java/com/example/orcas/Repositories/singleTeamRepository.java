@@ -1,11 +1,13 @@
 package com.example.orcas.Repositories;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.orcas.Api.ApiManger;
 import com.example.orcas.Api.Model.SquadItem;
 import com.example.orcas.Api.Model.TeamResponse;
 import com.example.orcas.Constants;
+import com.example.orcas.DataBase.myDataBase;
 
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class singleTeamRepository {
         this.id = id;
     }
 
+    public static Context context;
+
 
     public void getTeam() {
         ApiManger.getApis().getTeam(Constants.APIKEY, Integer.toString(id)).observeOn(AndroidSchedulers.mainThread())
@@ -38,12 +42,33 @@ public class singleTeamRepository {
                     public void onSuccess(TeamResponse teamResponse) {
                         team.setValue(teamResponse);
                         teamPlayers.setValue(teamResponse.getSquad());
+                        if( myDataBase.
+                                getInstance(context)
+                                .teamDao()
+                                .getTeams() == null)
+                        {
+                            myDataBase.
+                                    getInstance(context)
+                                    .teamDao()
+                                    .addTeamData(teamResponse);
+                        }
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("error", e.getLocalizedMessage() + "");
+                        team.setValue(
+                                myDataBase
+                                        .getInstance(context)
+                                        .teamDao()
+                                        .getTeamById(id)
+                        );
+                        teamPlayers.setValue(
+                                myDataBase
+                                        .getInstance(context)
+                                        .teamDao()
+                                        .getTeamById(id).getSquad()
+                        );
 
                     }
                 });
